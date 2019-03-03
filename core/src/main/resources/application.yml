@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: awesome-application
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/awesome-dashboard
+    username: dashboard-app
+    password: dashboard-app
+    tomcat:
+      validation-query: SELECT 1
+      validation-query-timeout: 6000
+
+
