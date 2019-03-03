@@ -17,7 +17,7 @@ public class DataTable {
     private int ttl;
 
     @ManyToOne
-    @JoinColumn(name = "data_source")
+    @JoinColumn(name = "data_source_id")
     private DataSource dataSource;
 
     public DataTable() {

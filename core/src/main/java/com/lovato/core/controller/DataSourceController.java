@@ -1,7 +1,6 @@
 package com.lovato.core.controller;
 
 import com.lovato.core.service.DataSourceService;
-import com.lovato.model.domain.DataSource;
 import com.lovato.model.dto.DataSourceDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -9,6 +8,7 @@ import io.swagger.annotations.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,15 +38,13 @@ public class DataSourceController {
         return dataSourceService.save(dataSourceDTO);
     }
 
-
     @GetMapping
     public List<DataSourceDTO> findAll() {
         return dataSourceService.findAll();
     }
 
-
     @GetMapping(path = "/{id}")
-    public DataSourceDTO findById(@PathVariable("id") UUID dataSourceId) {
+    public DataSourceDTO findById(@PathVariable("id") UUID dataSourceId) throws EntityNotFoundException {
         return dataSourceService.findById(dataSourceId);
     }
 

@@ -6,7 +6,9 @@ import com.lovato.model.domain.DataSource;
 import com.lovato.model.dto.DataSourceDTO;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -29,15 +31,9 @@ public class DataSourceService {
         return DataSourceConverter.fromDomainToDTO(dataSource);
     }
 
-    public DataSourceDTO findById(UUID dataSourceId) {
+    public DataSourceDTO findById(UUID dataSourceId) throws EntityNotFoundException {
 
-//        Optional<DataSource> dataSource = repository.findById(dataSourceId);
-//
-//        dataSource.orElseThrow(new ResourceNotFoundException())
-//        if (dataSource.isPresent()) {
-//            return DataSourceConverter.fromDomainToDTO(dataSource.get());
-//        }
-
-        return null;
+        Optional<DataSource> dataSource = repository.findById(dataSourceId);
+        return DataSourceConverter.fromDomainToDTO(dataSource.orElseThrow(() -> new EntityNotFoundException()));
     }
 }
