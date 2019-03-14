@@ -16,6 +16,7 @@ Start a postgres instance using
     
 Initialize the database locally with flyway (or to perform a migration)
 
+    cd db-schema/
     mvn flyway:migrate
     
 At this point you should have your database up and running with a schema `dashboard`, `dashboard-app` user and
