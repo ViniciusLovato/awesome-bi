@@ -1,6 +1,6 @@
 ## awesome-bi
 
-### Setting up
+#### Setting up
 
 1. Install docker in order to start a PostgreSQL database
 
@@ -24,11 +24,11 @@ tables `data_source` and `data_table`
 Create or edit the database creating additional SQL files prefixed by V#_ (e.g. V3_name.sql). 
 
 
-2.Starting the application
+#### Starting the application
 
     cd core && mvn spring-boot:run
     
-3.Access
+#### Access
 
     http://localhost:8080
     http://localhost:8080/datasources
